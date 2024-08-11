@@ -84,13 +84,15 @@ Public Class EmployeeForm
     End Sub
 
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs)
+        MessageBox.Show("Submit button clicked!")
+
         ' ดึงข้อมูลจากช่องกรอกข้อมูล
         Dim name As String = nameTextBox.Text
         Dim surname As String = surnameTextBox.Text
         Dim age As String = ageTextBox.Text
 
         ' เชื่อมต่อกับฐานข้อมูล
-        Dim connectionString As String = "Server=DESKTOP-3C87OGA;Database=VBstarted;User Id=Jasdakorn;Password=1150;"
+        Dim connectionString As String = "Data Source=DESKTOP-3C87OGA;Initial Catalog=VBstarted;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"
         Dim query As String = "INSERT INTO Employee (Name, Surname, Age) VALUES (@Name, @Surname, @Age)"
 
         Using connection As New SqlConnection(connectionString)
@@ -111,6 +113,7 @@ Public Class EmployeeForm
         ' ปิดฟอร์มเมื่อปุ่ม Submit ถูกคลิก
         Me.Close()
     End Sub
+
 
 End Class
 
